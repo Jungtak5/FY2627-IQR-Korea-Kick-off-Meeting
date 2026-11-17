@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FY26/27 IQR Korea Kick-off Meeting · 행사 안내</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#05061a;
+    --navy:#0a0f3c;
+    --ink:#0b1030;
+    --zeiss:#0f3eb5;
+    --blue:#2f6bff;
+    --cyan:#5fb4ff;
+    --violet:#8a4dff;
+    --text:#1b1f33;
+    --muted:#6b7190;
+    --line:#e6e8f0;
+    --soft:#f4f6fb;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:64px}
+  body{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;color:#fff;background:var(--bg);padding:56px 0 40px}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 78%, rgba(255,255,255,.35), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 10% 85%, rgba(47,107,255,.55), transparent 65%),
+      radial-gradient(ellipse 70% 55% at 90% 85%, rgba(138,77,255,.55), transparent 65%),
+      linear-gradient(180deg,#05061a 0%,#070a2a 60%,#0a0f3c 100%);}
+  .hero svg.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:60%;opacity:.9}
+  .hero .wrap{position:relative;z-index:2}
+  .zeiss-badge{position:absolute;top:0;right:20px;width:54px;height:62px;background:var(--zeiss);display:flex;align-items:center;justify-content:center;
+    clip-path:path("M0 0 H54 V52 Q27 66 0 52 Z");font-weight:900;font-size:12px;letter-spacing:.5px;font-family:Georgia,serif;font-style:italic}
+  .fy{font-size:18px;font-weight:400;opacity:.9}
+  .hero h1{font-size:clamp(34px,7vw,56px);line-height:1.08;font-weight:700;letter-spacing:-.02em;margin:6px 0 18px}
+  .hero .meta{font-size:16px;opacity:.92;line-height:1.6}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;padding-bottom:110px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);color:#fff}
+  .btn.primary{background:#fff;color:var(--ink);border-color:#fff}
+
+  /* ---------- NAV ---------- */
+  nav.tabs{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  nav.tabs .wrap::-webkit-scrollbar{display:none}
+  nav.tabs a{flex:0 0 auto;padding:16px 12px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent}
+  nav.tabs a.active{color:var(--zeiss);border-bottom-color:var(--zeiss)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  section:nth-of-type(even){background:var(--soft)}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
+  h2{font-size:28px;font-weight:700;letter-spacing:-.02em;margin:6px 0 24px}
+  h3{font-size:17px;font-weight:700;margin-bottom:8px}
+  .note{font-size:13px;color:var(--muted)}
+  .todo{display:inline-block;font-size:11px;font-weight:700;color:#b54708;background:#fff4e5;border:1px solid #fcd9a8;padding:2px 8px;border-radius:999px;vertical-align:middle;margin-left:6px}
+
+  /* quick info */
+  .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .quick .card .k{font-size:12px;color:var(--muted);font-weight:600}
+  .quick .card .v{font-size:17px;font-weight:700;margin-top:4px;line-height:1.35}
+  .quick .card .s{font-size:13px;color:var(--muted);margin-top:2px}
+
+  .notice{margin-top:16px;padding:16px 18px;border-radius:14px;background:linear-gradient(90deg,rgba(47,107,255,.08),rgba(138,77,255,.08));border:1px solid rgba(47,107,255,.2);font-size:14px}
+  .notice b{color:var(--zeiss)}
+
+  /* ---------- TIMETABLE ---------- */
+  .tt{display:flex;flex-direction:column;gap:10px}
+  .row{display:grid;grid-template-columns:110px 1fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;position:relative;transition:.2s}
+  .row .time{font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;font-size:15px}
+  .row .dur{font-size:12px;color:var(--muted);margin-top:2px}
+  .row .num{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.08em}
+  .row .title{font-size:17px;font-weight:700;margin:2px 0 8px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:13px;padding:5px 10px;border-radius:999px;background:var(--soft);border:1px solid var(--line)}
+  .chip i{font-style:normal;color:var(--muted);margin-left:4px}
+  .row.break{background:transparent;border-style:dashed;padding:12px 20px}
+  .row.break .title{font-size:15px;margin:0;color:var(--muted);font-weight:600}
+  .row.pre{background:transparent;border-style:dashed}
+  .row.now{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,107,255,.15)}
+  .row.now::after{content:"NOW";position:absolute;top:14px;right:16px;font-size:11px;font-weight:800;color:#fff;background:var(--blue);padding:3px 8px;border-radius:999px;letter-spacing:.08em}
+  .row.done{opacity:.45}
+
+  /* ---------- DIRECTIONS ---------- */
+  .dir-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+  .addr{font-size:18px;font-weight:700;line-height:1.4}
+  .copy{margin-top:10px;font-size:13px;border:1px solid var(--line);background:#fff;padding:7px 12px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:600}
+  .maplinks{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .maplinks a{flex:1;min-width:120px;text-align:center;padding:12px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;color:#fff}
+  .maplinks .naver{background:#03c75a}
+  .maplinks .kakao{background:#fee500;color:#191919}
+  .maplinks .google{background:#1a73e8}
+  .way{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+  .way:first-of-type{border-top:0;padding-top:0}
+  .way .ico{flex:0 0 40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--soft)}
+  .way p{font-size:14px;color:#3a3f5c}
+  .way ul{margin:6px 0 0 18px;font-size:14px;color:#3a3f5c}
+
+  /* route diagram */
+  .route{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:12px}
+  .route span{font-size:13px;font-weight:600;padding:8px 12px;border-radius:10px;background:#fff;border:1px solid var(--line)}
+  .route span.goal{background:var(--zeiss);color:#fff;border-color:var(--zeiss)}
+  .route em{font-style:normal;color:var(--muted)}
+
+  /* ---------- FLOOR / SEATING ---------- */
+  .svgbox{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;overflow:auto}
+  .svgbox svg{display:block;width:100%;height:auto;min-width:560px}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:13px;color:#3a3f5c}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+  .finder{display:flex;gap:8px;margin-bottom:14px}
+  .finder input{flex:1;padding:13px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;background:#fff}
+  .finder input:focus{outline:2px solid var(--blue);border-color:transparent}
+  #findResult{font-size:14px;margin-bottom:14px;min-height:20px}
+  .tbl{cursor:pointer;transition:.2s}
+  .tbl circle.t{fill:#fff;stroke:#c9cee0;stroke-width:1.5}
+  .tbl.hl circle.t{fill:var(--blue);stroke:var(--blue)}
+  .tbl.hl text{fill:#fff}
+  .tbl.dim{opacity:.35}
+
+  .groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:16px}
+  .groups div{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer}
+  .groups div b{color:var(--zeiss);margin-right:6px}
+
+  /* ---------- INFO ---------- */
+  .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .info-grid .card p, .info-grid .card li{font-size:14px;color:#3a3f5c}
+  .info-grid .card ul{margin-left:18px}
+  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:8px}
+  summary{font-weight:700;cursor:pointer;font-size:15px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"Q. ";color:var(--blue)}
+  details p{margin-top:8px;font-size:14px;color:#3a3f5c}
+
+  .contact{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .contact a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .contact .role{font-size:12px;color:var(--muted);font-weight:600}
+  .contact .name{font-weight:700}
+  .contact .call{font-size:13px;font-weight:700;color:var(--blue)}
+
+  footer{background:var(--bg);color:rgba(255,255,255,.6);font-size:12px;padding:28px 0;text-align:center}
+
+  @media (max-width:760px){
+    .quick{grid-template-columns:repeat(2,1fr)}
+    .dir-grid,.info-grid,.contact{grid-template-columns:1fr}
+    .row{grid-template-columns:1fr;gap:6px}
+    .row.now::after{top:12px}
+    h2{font-size:24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <svg class="waves" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="gw" x1="0" x2="1">
+        <stop offset="0" stop-color="#2f6bff"/><stop offset=".5" stop-color="#cfe0ff"/><stop offset="1" stop-color="#8a4dff"/>
+      </linearGradient>
+    </defs>
+    <g fill="none" stroke="url(#gw)">
+      <path d="M0 120 C300 380, 900 380, 1200 120" stroke-width="2" opacity=".9"/>
+      <path d="M0 330 C300 60, 900 60, 1200 330" stroke-width="2" opacity=".9"/>
+      <path d="M0 160 C320 360, 880 360, 1200 160" stroke-width="1" opacity=".6"/>
+      <path d="M0 300 C320 80, 880 80, 1200 300" stroke-width="1" opacity=".6"/>
+      <path d="M0 200 C340 330, 860 330, 1200 200" stroke-width=".8" opacity=".4"/>
+      <path d="M0 260 C340 120, 860 120, 1200 260" stroke-width=".8" opacity=".4"/>
+    </g>
+    <circle cx="600" cy="232" r="60" fill="none" stroke="#fff" stroke-opacity=".25"/>
+    <circle cx="600" cy="232" r="32" fill="none" stroke="#fff" stroke-opacity=".3"/>
+    <circle cx="600" cy="232" r="5" fill="#fff"/>
+  </svg>
+  <div class="zeiss-badge" aria-label="ZEISS">ZEISS</div>
+  <div class="wrap">
+    <div class="fy">FY26/27</div>
+    <h1>IQR Korea<br>Kick-off Meeting</h1>
+    <div class="meta">
+      2026. 11. 25 (수) 13:00 – 18:00<br>
+      Novotel Ambassador Suwon · 2F Champagne Hall
+    </div>
+    <div class="hero-actions">
+      <a class="btn primary" href="#schedule">타임테이블</a>
+      <a class="btn" href="#seating">내 테이블 찾기</a>
+      <a class="btn" href="#directions">오시는 길</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="tabs">
+  <div class="wrap">
+    <a href="#overview">개요</a>
+    <a href="#schedule">타임테이블</a>
+    <a href="#directions">오시는 길</a>
+    <a href="#seating">테이블 배치</a>
+    <a href="#info">이용 안내</a>
+    <a href="#contact">문의</a>
+  </div>
+</nav>
+
+<!-- ================= OVERVIEW ================= -->
+<section id="overview">
+  <div class="wrap">
+    <div class="eyebrow">Overview</div>
+    <h2>행사 개요</h2>
+    <div class="quick">
+      <div class="card"><div class="k">일시</div><div class="v">11월 25일 (수)</div><div class="s">13:00 – 18:00</div></div>
+      <div class="card"><div class="k">등록</div><div class="v">12:30 부터</div><div class="s">2F 등록데스크</div></div>
+      <div class="card"><div class="k">장소</div><div class="v">노보텔 앰배서더 수원</div><div class="s">2층 샴페인홀</div></div>
+      <div class="card"><div class="k">드레스코드</div><div class="v">비즈니스 캐주얼</div><div class="s"></div></div>
+    </div>
+    <div class="notice">
+      <b>도착하시면</b> 2층 등록데스크에서 이름 확인 후 <b>네임택</b>을 받아주세요. 좌석은 지정석이며, 네임택 뒷면과 이 페이지의 <a href="#seating">테이블 배치</a>에서 확인할 수 있습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCHEDULE ================= -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="eyebrow">Timetable</div>
+    <h2>타임테이블</h2>
+    <p class="note" style="margin:-12px 0 18px">행사 당일에는 현재 진행 중인 세션이 자동으로 표시됩니다.</p>
+
+    <div class="tt" id="tt">
+      <div class="row pre" data-s="12:30" data-e="13:00">
+        <div><div class="time">12:30 – 13:00</div><div class="dur">30 min</div></div>
+        <div><div class="num">REGISTRATION</div><div class="title">등록 및 입장</div><div class="chips"><span class="chip">2F 등록데스크 · 네임택 수령</span></div></div>
+      </div>
+
+      <div class="row" data-s="13:00" data-e="13:10">
+        <div><div class="time">13:00 – 13:10</div><div class="dur">10 min</div></div>
+        <div><div class="num">01</div><div class="title">Welcome from SSC</div><div class="chips"><span class="chip">Jaane Seehusen<i>10 min</i></span></div></div>
+      </div>
+
+      <div class="row" data-s="13:10" data-e="14:10">
+        <div><div class="time">13:10 – 14:10</div><div class="dur">60 min</div></div>
+        <div><div class="num">02</div><div class="title">IQR Vision &amp; Business Direction</div><div class="chips"><span class="chip">Roger Bayer</span><span class="chip">Martin Grant</span><span class="chip">Shaun David Graham</span></div></div>
+      </div>
+
+      <div class="row" data-s="14:10" data-e="14:50">
+        <div><div class="time">14:10 – 14:50</div><div class="dur">40 min</div></div>
+        <div><div class="num">03</div><div class="title">Success Stories – One IQR</div><div class="chips">
+          <span class="chip">Former IQS nomination 1<i>7 min</i></span><span class="chip">IQS 2<i>7 min</i></span><span class="chip">IQS 3<i>7 min</i></span>
+          <span class="chip">Former RMS nomination 1<i>7 min</i></span><span class="chip">RMS 2<i>7 min</i></span><span class="chip">RMS 3<i>7 min</i></span>
+        </div></div>
+      </div>
+
+      <div class="row break" data-s="14:50" data-e="15:10">
+        <div><div class="time">14:50 – 15:10</div></div>
+        <div><div class="title">☕ Coffee Break 1 · 20 min</div></div>
+      </div>
+
+      <div class="row" data-s="15:10" data-e="15:40">
+        <div><div class="time">15:10 – 15:40</div><div class="dur">30 min</div></div>
+        <div><div class="num">04</div><div class="title">Korea Business Performance &amp; Priorities</div><div class="chips"><span class="chip">Wook Choi<i>15 min</i></span><span class="chip">Kiyoung Kim<i>15 min</i></span></div></div>
+      </div>
+
+      <div class="row" data-s="15:40" data-e="16:25">
+        <div><div class="time">15:40 – 16:25</div><div class="dur">45 min</div></div>
+        <div><div class="num">05</div><div class="title">Business Success Factors</div><div class="chips"><span class="chip">HR<i>30 min</i></span><span class="chip">Controlling – Controller<i>15 min</i></span></div></div>
+      </div>
+
+      <div class="row break" data-s="16:25" data-e="16:45">
+        <div><div class="time">16:25 – 16:45</div></div>
+        <div><div class="title">☕ Coffee Break 2 · 20 min</div></div>
+      </div>
+
+      <div class="row" data-s="16:45" data-e="17:30">
+        <div><div class="time">16:45 – 17:30</div><div class="dur">45 min</div></div>
+        <div><div class="num">06</div><div class="title">Business &amp; Functional Strategies</div><div class="chips">
+          <span class="chip">LIS – Kicheol Yi<i>7 min</i></span>
+          <span class="chip">Metrology – Jongseon Choi<i>7 min</i></span>
+          <span class="chip">ZKIC/Application – Mooyeol Kim<i>7 min</i></span>
+          <span class="chip">Semiconductor – Yongdae Kwon<i>7 min</i></span>
+          <span class="chip">Microscopy – Kwanghoon Jeong<i>7 min</i></span>
+          <span class="chip">Service (RQS) – Jongwon Lee<i>7 min</i></span>
+          <span class="chip">Marketing – Hyokeong Chae<i>5 min</i></span>
+        </div></div>
+      </div>
+
+      <div class="row" data-s="17:30" data-e="17:55">
+        <div><div class="time">17:30 – 17:55</div><div class="dur">25 min</div></div>
+        <div><div class="num">07</div><div class="title">Panel Discussion</div><div class="chips"><span class="chip">Roger Bayer</span><span class="chip">Alexander Dollansky</span><span class="chip">Martin Grant</span><span class="chip">Shaun David Graham</span><span class="chip">Wook Choi</span><span class="chip">Kiyoung Kim</span></div></div>
+      </div>
+
+      <div class="row" data-s="17:55" data-e="18:00">
+        <div><div class="time">17:55 – 18:00</div><div class="dur">5 min</div></div>
+        <div><div class="num">08</div><div class="title">Closing</div><div class="chips"><span class="chip">Wook Choi<i>5 min</i></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIRECTIONS ================= -->
+<section id="directions">
+  <div class="wrap">
+    <div class="eyebrow">Directions</div>
+    <h2>오시는 길</h2>
+
+    <div class="dir-grid">
+      <div class="card">
+        <div class="note">주소</div>
+        <div class="addr" id="addr">경기도 수원시 팔달구 덕영대로 902<br>노보텔 앰배서더 수원 2층 샴페인홀</div>
+        <div class="note" style="margin-top:4px">(우) 16622 · 호텔 대표번호 031-547-6600</div>
+        <button class="copy" onclick="copyAddr(this)">주소 복사</button>
+        <div class="maplinks">
+          <a class="naver" target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EB%85%B8%EB%B3%B4%ED%85%94%20%EC%95%B0%EB%B0%B0%EC%84%9C%EB%8D%94%20%EC%88%98%EC%9B%90">네이버지도</a>
+          <a class="kakao" target="_blank" rel="noopener" href="https://map.kakao.com/?q=%EB%85%B8%EB%B3%B4%ED%85%94%20%EC%95%B0%EB%B0%B0%EC%84%9C%EB%8D%94%20%EC%88%98%EC%9B%90">카카오맵</a>
+          <a class="google" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Novotel+Ambassador+Suwon">Google</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="way">
+          <div class="ico">🚆</div>
+          <div>
+            <h3>기차 · 지하철 (권장)</h3>
+            <p>수원역(KTX·ITX·무궁화 / 1호선·수인분당선)과 호텔이 실내로 연결되어 있습니다.</p>
+            <div class="route">
+              <span>수원역 2층 대합실</span><em>→</em><span>AK플라자 연결통로</span><em>→</em><span class="goal">호텔 2층</span>
+            </div>
+            <p class="note" style="margin-top:6px">역에서 도보 약 2–3분</p>
+          </div>
+        </div>
+        <div class="way">
+          <div class="ico">🚗</div>
+          <div>
+            <h3>자가용</h3>
+            <p>내비게이션에 <b>"노보텔 앰배서더 수원"</b> 검색</p>
+            <ul>
+              <li>호텔 지하주차장 이용</li>
+              <li>주차 등록: 2층 등록데스크에서 차량번호 등록</li>
+            </ul>
+          </div>
+        </div>
+        <div class="way">
+          <div class="ico">🚕</div>
+          <div>
+            <h3>택시</h3>
+            <p>"수원역 노보텔 호텔 정문"으로 요청 후 로비 → 엘리베이터 2층</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEATING ================= -->
+<section id="seating">
+  <div class="wrap">
+    <div class="eyebrow">Seating</div>
+    <h2>테이블 배치</h2>
+
+    <div class="finder">
+      <input id="q" type="search" placeholder="이름 또는 부서 검색 (예: Metrology, 홍길동)" autocomplete="off">
+    </div>
+    <div id="findResult" class="note">검색하면 해당 테이블이 강조됩니다.</div>
+
+    <div class="svgbox">
+      <svg id="seatMap" viewBox="0 0 800 520" font-family="Pretendard, sans-serif">
+        <!-- stage -->
+        <rect x="200" y="20" width="400" height="56" rx="10" fill="#0a0f3c"/>
+        <text x="400" y="54" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">STAGE · 연단</text>
+        <rect x="60" y="24" width="110" height="48" rx="6" fill="#e9efff" stroke="#2f6bff"/>
+        <text x="115" y="53" text-anchor="middle" font-size="12" font-weight="700" fill="#0f3eb5">Screen L</text>
+        <rect x="630" y="24" width="110" height="48" rx="6" fill="#e9efff" stroke="#2f6bff"/>
+        <text x="685" y="53" text-anchor="middle" font-size="12" font-weight="700" fill="#0f3eb5">Screen R</text>
+        <!-- panel seats -->
+        <g id="panel">
+          <rect x="290" y="92" width="220" height="30" rx="15" fill="#f1ecff" stroke="#8a4dff"/>
+          <text x="400" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#6a2fe0">VIP · Speaker 지정석</text>
+        </g>
+        <g id="tables"></g>
+        <!-- entrance -->
+        <text x="110" y="490" text-anchor="middle" font-size="12" font-weight="700" fill="#2f6bff">▲ 입구 A</text>
+        <text x="690" y="490" text-anchor="middle" font-size="12" font-weight="700" fill="#2f6bff">▲ 입구 B</text>
+      </svg>
+    </div>
+
+    <div class="groups" id="groups"></div>
+  </div>
+</section>
+
+<!-- ================= INFO ================= -->
+<section id="info">
+  <div class="wrap">
+    <div class="eyebrow">Guide</div>
+    <h2>이용 안내</h2>
+    <div class="info-grid">
+      <div class="card">
+        <h3>📶 Wi-Fi</h3>
+        <p>SSID: <b>Novotel_Meeting</b><br>Password: <b>현장 안내 예정</b></p>
+      </div>
+      <div class="card">
+        <h3>☕ 다과 · 식사</h3>
+        <p>Coffee Break 1·2에 홀 앞 Foyer에서 커피와 다과가 제공됩니다.</p>
+      </div>
+      <div class="card">
+        <h3>📱 행사 중 유의사항</h3>
+        <ul>
+          <li>휴대폰은 무음 모드로 전환해 주세요</li>
+          <li>행사 사진은 종료 후 메일로 공유됩니다</li>
+          <li>사내 대외비 자료 촬영은 삼가 주세요</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:24px">
+      <details><summary>늦게 도착하면 어떻게 하나요?</summary><p>등록데스크에서 네임택을 받으신 뒤, 스태프 안내에 따라 뒤쪽 출입문으로 조용히 입장해 주세요.</p></details>
+      <details><summary>짐을 맡길 수 있나요?</summary><p>등록데스크에 말씀해 주시면 보관해 드립니다. 귀중품은 직접 소지해 주세요.</p></details>
+      <details><summary>발표 자료는 공유되나요?</summary><p>행사 종료 후 공유 가능한 자료를 정리해 메일로 전달드립니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>현장 문의</h2>
+    <div class="contact">
+      <a href="tel:010-0000-0000"><div><div class="role">행사 문의</div><div class="name">담당자명</div></div><span class="call">전화하기 →</span></a>
+      <a href="tel:010-0000-0000"><div><div class="role">등록 · 좌석</div><div class="name">담당자명</div></div><span class="call">전화하기 →</span></a>
+      <a href="tel:010-0000-0000"><div><div class="role">분실물 · 기타</div><div class="name">담당자명</div></div><span class="call">전화하기 →</span></a>
+      <a href="tel:031-547-6600"><div><div class="role">호텔 대표</div><div class="name">노보텔 앰배서더 수원</div></div><span class="call">031-547-6600 →</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  FY26/27 IQR Korea Kick-off Meeting · ZEISS Korea<br>
+  25 Nov. 2026 · Novotel Ambassador Suwon 2F Champagne Hall
+</footer>
+
+<script>
+/* ---------- 테이블 데이터 (명단 확정 후 수정) ---------- */
+const TABLES = [
+  {no:1,  group:"Leadership · Guests", members:["Roger Bayer","Martin Grant","Shaun David Graham","Alexander Dollansky","Jaane Seehusen","Wook Choi","Kiyoung Kim"]},
+  {no:2,  group:"IQS · Metrology",    members:["Jongseon Choi"]},
+  {no:3,  group:"IQS · Metrology",    members:[]},
+  {no:4,  group:"RMS · Microscopy",   members:["Kwanghoon Jeong"]},
+  {no:5,  group:"RMS · Microscopy",   members:[]},
+  {no:6,  group:"Semiconductor",      members:["Yongdae Kwon"]},
+  {no:7,  group:"LIS",                members:["Kicheol Yi"]},
+  {no:8,  group:"ZKIC · Application", members:["Mooyeol Kim"]},
+  {no:9,  group:"Service (RQS)",      members:["Jongwon Lee"]},
+  {no:10, group:"Service (RQS)",      members:[]},
+  {no:11, group:"Marketing · HR",     members:["Hyokeong Chae"]},
+  {no:12, group:"Controlling · Others",members:[]},
+];
+
+/* 4열 × 3행 원형 테이블 배치 */
+(function drawTables(){
+  const g = document.getElementById('tables');
+  const cols=[160,320,480,640], rows=[185,295,405];
+  const ns="http://www.w3.org/2000/svg";
+  TABLES.forEach((t,i)=>{
+    const cx=cols[i%4], cy=rows[Math.floor(i/4)];
+    const grp=document.createElementNS(ns,'g');
+    grp.setAttribute('class','tbl'); grp.dataset.no=t.no;
+    // chairs
+    for(let k=0;k<10;k++){
+      const a=(k/10)*Math.PI*2;
+      const c=document.createElementNS(ns,'circle');
+      c.setAttribute('cx',cx+Math.cos(a)*44); c.setAttribute('cy',cy+Math.sin(a)*44);
+      c.setAttribute('r',6); c.setAttribute('fill','#dfe3ef');
+      grp.appendChild(c);
+    }
+    const c=document.createElementNS(ns,'circle');
+    c.setAttribute('class','t'); c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',32);
+    grp.appendChild(c);
+    const tx=document.createElementNS(ns,'text');
+    tx.setAttribute('x',cx); tx.setAttribute('y',cy+2); tx.setAttribute('text-anchor','middle');
+    tx.setAttribute('font-size','18'); tx.setAttribute('font-weight','800'); tx.setAttribute('fill','#0f3eb5');
+    tx.textContent=t.no; grp.appendChild(tx);
+    const sub=document.createElementNS(ns,'text');
+    sub.setAttribute('x',cx); sub.setAttribute('y',cy+17); sub.setAttribute('text-anchor','middle');
+    sub.setAttribute('font-size','8.5'); sub.setAttribute('fill','#6b7190');
+    sub.textContent=t.group.length>14?t.group.slice(0,13)+'…':t.group; grp.appendChild(sub);
+    grp.addEventListener('click',()=>highlight([t.no], `<b>Table ${t.no}</b> · ${t.group}`));
+    g.appendChild(grp);
+  });
+
+  const box=document.getElementById('groups');
+  TABLES.forEach(t=>{
+    const d=document.createElement('div');
+    d.innerHTML=`<b>T${t.no}</b>${t.group}`;
+    d.onclick=()=>{highlight([t.no], `<b>Table ${t.no}</b> · ${t.group}`); document.getElementById('seatMap').scrollIntoView({behavior:'smooth',block:'center'});};
+    box.appendChild(d);
+  });
+})();
+
+function highlight(nos,msg){
+  document.querySelectorAll('.tbl').forEach(el=>{
+    const on=nos.includes(+el.dataset.no);
+    el.classList.toggle('hl',on);
+    el.classList.toggle('dim',nos.length>0 && !on);
+  });
+  document.getElementById('findResult').innerHTML = msg || (nos.length? '' : '검색하면 해당 테이블이 강조됩니다.');
+}
+
+document.getElementById('q').addEventListener('input',e=>{
+  const q=e.target.value.trim().toLowerCase();
+  if(!q){highlight([]);return;}
+  const hits=TABLES.filter(t=>t.group.toLowerCase().includes(q)||t.members.some(m=>m.toLowerCase().includes(q)));
+  if(!hits.length){highlight([], '일치하는 결과가 없습니다. 등록데스크에 문의해 주세요.');document.querySelectorAll('.tbl').forEach(el=>el.classList.add('dim'));return;}
+  highlight(hits.map(t=>t.no), hits.map(t=>{
+    const m=t.members.filter(x=>x.toLowerCase().includes(q));
+    return `<b>Table ${t.no}</b> · ${t.group}${m.length?' — '+m.join(', '):''}`;
+  }).join('<br>'));
+});
+
+/* ---------- 현재 세션 표시 (행사 당일, KST 기준) ---------- */
+(function markNow(){
+  const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}));
+  const isDay=now.getFullYear()===2026 && now.getMonth()===10 && now.getDate()===25;
+  if(!isDay) return;
+  const mins=now.getHours()*60+now.getMinutes();
+  const toM=s=>{const [h,m]=s.split(':').map(Number);return h*60+m;};
+  document.querySelectorAll('#tt .row').forEach(r=>{
+    const s=toM(r.dataset.s), e=toM(r.dataset.e);
+    if(mins>=e) r.classList.add('done');
+    else if(mins>=s) r.classList.add('now');
+  });
+  setTimeout(markNow,60000);
+})();
+
+/* ---------- 주소 복사 ---------- */
+function copyAddr(btn){
+  const t='경기도 수원시 팔달구 덕영대로 902 노보텔 앰배서더 수원';
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(
+    ()=>{btn.textContent='복사됨 ✓';setTimeout(()=>btn.textContent='주소 복사',1500);},
+    ()=>{prompt('주소를 복사하세요',t);}
+  );
+}
+
+/* ---------- 탭 활성화 ---------- */
+const links=[...document.querySelectorAll('nav.tabs a')];
+const io=new IntersectionObserver(es=>{
+  es.forEach(en=>{ if(en.isIntersecting){
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
+  }});
+},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
